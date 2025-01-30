@@ -34,3 +34,12 @@ D:\Projects\BookBridge\backend\BookManagementAPI\obj\Debug\net7.0\refint\BookMan
 D:\Projects\BookBridge\backend\BookManagementAPI\obj\Debug\net7.0\BookManagementAPI.pdb
 D:\Projects\BookBridge\backend\BookManagementAPI\obj\Debug\net7.0\BookManagementAPI.genruntimeconfig.cache
 D:\Projects\BookBridge\backend\BookManagementAPI\obj\Debug\net7.0\ref\BookManagementAPI.dll
+D:\Projects\BookBridge\backend\BookManagementAPI\bin\Debug\net7.0\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\Projects\BookBridge\backend\BookManagementAPI\bin\Debug\net7.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Projects\BookBridge\backend\BookManagementAPI\bin\Debug\net7.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\Projects\BookBridge\backend\BookManagementAPI\bin\Debug\net7.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Projects\BookBridge\backend\BookManagementAPI\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
+D:\Projects\BookBridge\backend\BookManagementAPI\bin\Debug\net7.0\Microsoft.Extensions.Primitives.dll
+D:\Projects\BookBridge\backend\BookManagementAPI\bin\Debug\net7.0\System.Diagnostics.DiagnosticSource.dll
+D:\Projects\BookBridge\backend\BookManagementAPI\bin\Debug\net7.0\System.Text.Encodings.Web.dll
+D:\Projects\BookBridge\backend\BookManagementAPI\bin\Debug\net7.0\runtimes\browser\lib\net7.0\System.Text.Encodings.Web.dll

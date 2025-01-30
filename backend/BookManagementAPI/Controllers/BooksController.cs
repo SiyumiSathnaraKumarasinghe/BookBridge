@@ -34,23 +34,47 @@ namespace backend.Controllers
             return book;
         }
 
+        // Modified POST method with validation
         [HttpPost]
-        public async Task<ActionResult<Book>> AddBook(Book book)
+        public async Task<ActionResult<Book>> AddBook([FromBody] Book newBook)
         {
-            _context.Books.Add(book);
+            // Validate the incoming book data
+            if (newBook == null || string.IsNullOrEmpty(newBook.Title) || string.IsNullOrEmpty(newBook.Author) || string.IsNullOrEmpty(newBook.ISBN) || newBook.PublicationDate == default)
+            {
+                return BadRequest("Invalid book data. All fields are required.");
+            }
+
+            // Add the new book to the database
+            _context.Books.Add(newBook);
             await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetBook), new { id = book.Id }, book);
+
+            // Return the created book with its URI
+            return CreatedAtAction(nameof(GetBook), new { id = newBook.Id }, newBook);
         }
 
+        // Modified PUT method to handle updating an existing book
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateBook(Guid id, Book book)
+        public async Task<IActionResult> UpdateBook(Guid id, [FromBody] Book updatedBook)
         {
-            if (id != book.Id) return BadRequest();
-            _context.Entry(book).State = EntityState.Modified;
+            // Check if the ID matches
+            if (id != updatedBook.Id) return BadRequest("Book ID mismatch.");
+
+            // Check if the book exists
+            var existingBook = await _context.Books.FindAsync(id);
+            if (existingBook == null) return NotFound();
+
+            // Update the book details
+            existingBook.Title = updatedBook.Title;
+            existingBook.Author = updatedBook.Author;
+            existingBook.ISBN = updatedBook.ISBN;
+            existingBook.PublicationDate = updatedBook.PublicationDate;
+
+            // Save changes to the database
             await _context.SaveChangesAsync();
             return NoContent();
         }
 
+        // DELETE method to remove a book by ID
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteBook(Guid id)
         {
